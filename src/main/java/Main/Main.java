@@ -1,5 +1,6 @@
 package Main;
 
+import Interface.MainWindow;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -9,8 +10,11 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Test");
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        // stage.getIcons().add(new Image("icon.png"));
+        stage.setFullScreen(true);
+        stage.setScene(new MainWindow());
+        stage.setTitle("PixoPaint");
+        stage.show();
     }
 }
