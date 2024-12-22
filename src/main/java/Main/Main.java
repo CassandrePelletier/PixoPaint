@@ -1,8 +1,9 @@
 package Main;
 
-import Interface.MainWindow;
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -12,10 +13,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // stage.getIcons().add(new Image("icon.png"));
-        stage.setFullScreen(true);
-        stage.setScene(new MainWindow(new Group()));
+        Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
         stage.setTitle("PixoPaint");
+        stage.setScene(new Scene(root));
         stage.show();
     }
 }
