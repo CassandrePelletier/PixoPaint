@@ -5,9 +5,9 @@ import java.awt.*;
 public class Project {
     public Canvas canvas;
     public ColorHistory colorHistory;
-    public Project(){
-        Dimension DEFAULT_DIMENSION = new Dimension(650,565);
-        this.canvas = new Canvas(DEFAULT_DIMENSION);
+
+    public Project(Dimension canvasDimension){
+        this.canvas = new Canvas(canvasDimension);
         this.colorHistory = new ColorHistory();
     }
 }
