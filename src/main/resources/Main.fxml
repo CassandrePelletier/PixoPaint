@@ -16,7 +16,7 @@
       <AnchorPane prefHeight="0.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom, WHITE, LIGHTGRAY);" />
       <AnchorPane layoutY="35.0" prefHeight="565.0" prefWidth="150.0" style="-fx-background-color: #4D4D4D;">
          <children>
-            <ColorPicker fx:id="colorPicker" layoutX="13.0" layoutY="18.0" onAction="#changeColor" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-color: LIGHTGRAY;" />
+            <ColorPicker fx:id="colorPicker" layoutX="13.0" layoutY="18.0" onAction="#changeActiveColor" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-color: LIGHTGRAY;" />
             <Label layoutX="13.0" text="Pick your color :" textFill="WHITE">
                <font>
                   <Font name="Arial" size="12.0" />
