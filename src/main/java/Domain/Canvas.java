@@ -2,15 +2,13 @@ package Domain;
 
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Optional;
 
 public class Canvas {
     private final Dimension dimension;
     private HashMap<Point,Color> pixels;
 
-    public Canvas(Optional<Dimension> dimension){
-        Dimension DEFAULT_DIMENSION = new Dimension(650,565);
-        this.dimension = dimension.orElse(DEFAULT_DIMENSION);
+    public Canvas(Dimension dimension){
+        this.dimension = dimension ;
         this.pixels = new HashMap<>();
         initializePixels();
     }
