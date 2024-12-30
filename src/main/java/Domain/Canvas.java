@@ -1,32 +1,34 @@
 package Domain;
 
-import java.awt.*;
+import javafx.geometry.Dimension2D;
+import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
 import java.util.HashMap;
 
 public class Canvas {
-    private final Dimension dimension;
-    private HashMap<Point,Color> pixels;
+    private final Dimension2D dimension;
+    private HashMap<Point2D,Color> pixels;
 
-    public Canvas(Dimension dimension){
+    public Canvas(Dimension2D dimension){
         this.dimension = dimension ;
         this.pixels = new HashMap<>();
         initializePixels();
     }
 
     private void initializePixels(){
-        for (int i = 0; i < dimension.width; i++) {
-            for (int j = 0; j < dimension.height; j++) {
-                Point coordinates = new Point(i,j);
+        for (int i = 0; i < dimension.getWidth(); i++) {
+            for (int j = 0; j < dimension.getHeight(); j++) {
+                Point2D coordinates = new Point2D(i,j);
                 this.pixels.put(coordinates, Color.WHITE);
             }
         }
     }
 
-    public HashMap<Point,Color> getPixels(){
+    public HashMap<Point2D,Color> getPixels(){
         return pixels;
     }
 
-    public void modifyPixelColor(Point coordinates, Color color){
+    public void modifyPixelColor(Point2D coordinates, Color color){
         pixels.put(coordinates, color);
     }
 }
