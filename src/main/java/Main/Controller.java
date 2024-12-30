@@ -2,19 +2,19 @@ package Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class Controller {
     @FXML
-    private Rectangle grid;
+    private Canvas canvas;
+    @FXML
+    private ColorPicker colorPicker;
+    private Color activeColor;
 
     public void changeColor(ActionEvent e) {
-        System.out.println("Button pressed");
-        if (grid.getFill() == Color.AQUA)
-            grid.setFill(Color.DARKGRAY);
-        else {
-            grid.setFill(Color.AQUA);
-        }
+        activeColor = colorPicker.getValue();
+        System.out.println("Active Color changed : " + activeColor);
     }
 }
