@@ -6,7 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
 
-public class Controller {
+public class MainController {
     @FXML
     private Canvas canvas;
     @FXML
