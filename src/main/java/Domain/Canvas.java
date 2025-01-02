@@ -31,4 +31,8 @@ public class Canvas {
     public void modifyPixelColor(Point2D coordinates, Color color){
         pixels.put(coordinates, color);
     }
+
+    public Dimension2D getDimension(){
+        return dimension;
+    }
 }

@@ -20,6 +20,12 @@ public class MainController {
     private final DomainController domainController = DomainController.getInstance();
     private int colorsInHistory = 5;
 
+    @FXML
+    public void initialize() {
+        CanvasController canvasController = CanvasController.getInstance(canvas);
+        canvasController.initializeCanvas();
+    }
+
     public void changeActiveColor(){
         activeColor = colorPicker.getValue();
         domainController.addColorToHistory(activeColor);

@@ -44,4 +44,8 @@ public class DomainController {
     public HashMap<Point2D, Color> getPixels(){
         return project.canvas.getPixels();
     }
+
+    public Dimension2D getDimension(){
+        return project.canvas.getDimension();
+    }
 }
