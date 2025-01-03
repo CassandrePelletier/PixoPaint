@@ -56,6 +56,6 @@
             </MenuBar>
          </children>
       </AnchorPane>
-      <Canvas fx:id="canvas" height="565.0" layoutX="150.0" layoutY="35.0" width="650.0" />
+      <Canvas fx:id="canvas" height="565.0" layoutX="150.0" layoutY="35.0" onMouseClicked="#modifyPixelColor" width="650.0" />
    </children>
 </AnchorPane>

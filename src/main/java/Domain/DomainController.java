@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DomainController {
-    private static DomainController instance;
+    private static DomainController instance = null;
     private Project project;
 
     private DomainController(){

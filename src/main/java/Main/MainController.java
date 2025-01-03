@@ -1,14 +1,11 @@
 package Main;
 
 import Domain.DomainController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
-import java.util.HashMap;
 import java.util.List;
 
 public class MainController {
@@ -18,12 +15,18 @@ public class MainController {
     private ColorPicker colorPicker;
     private Color activeColor;
     private final DomainController domainController = DomainController.getInstance();
+    private CanvasController canvasController = null;
     private int colorsInHistory = 5;
 
     @FXML
     public void initialize() {
-        CanvasController canvasController = CanvasController.getInstance(canvas);
+        canvasController = CanvasController.getInstance(canvas);
         canvasController.initializeCanvas();
+    }
+
+    @FXML
+    public void modifyPixelColor(MouseEvent event){
+        canvasController.modifyPixelColor(event, activeColor);
     }
 
     public void changeActiveColor(){
@@ -38,16 +41,6 @@ public class MainController {
 
     private void modifyColorHistory(){
         List<Color> colorHistory = domainController.getColorHistory(colorsInHistory);
-        // TODO : update on gui
-    }
-
-    private void modifyPixelColor(Point2D coordinates){
-        domainController.modifyPixelColor(coordinates, activeColor);
-        updateCanvas();
-    }
-
-    private void updateCanvas(){
-        HashMap<Point2D, Color> pixels = domainController.getPixels();
         // TODO : update on gui
     }
 }

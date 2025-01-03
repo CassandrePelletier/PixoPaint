@@ -2,21 +2,25 @@ package Main;
 
 import Domain.DomainController;
 import javafx.geometry.Dimension2D;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
-import static java.lang.Math.abs;
+import java.util.HashMap;
+
+import static java.lang.Math.floor;
 
 public class CanvasController {
-    private static CanvasController instance;
+    private static CanvasController instance = null;
     private final DomainController domainController = DomainController.getInstance();
     private Canvas canvas;
     private GraphicsContext graphicsContext;
     private double scale;
     private final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(650,565);
     private final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(150,35);
+    private final int BORDER_BUFFER = 1;
 
     private CanvasController(Canvas canvas){
         this.canvas = canvas;
@@ -53,9 +57,8 @@ public class CanvasController {
     }
 
     private void setDimensionCanvas(double width, double height){
-        // +2 for the outer lines
-        double newWidth = width * scale + 2;
-        double newHeight = height * scale + 2;
+        double newWidth = width * scale + BORDER_BUFFER * 2;
+        double newHeight = height * scale + BORDER_BUFFER * 2;
 
         canvas.setWidth(newWidth);
         canvas.setHeight(newHeight);
@@ -91,5 +94,31 @@ public class CanvasController {
                 graphicsContext.strokeLine(0, j, width, j);
             }
         }
+    }
+
+    public void modifyPixelColor(MouseEvent event, Color activeColor){
+        double pixelX = floor(event.getX() / scale);
+        double pixelY = floor(event.getY() / scale);
+
+        Point2D coordinates = new Point2D(pixelX, pixelY);
+        domainController.modifyPixelColor(coordinates, activeColor);
+        updateCanvas();
+    }
+
+    private void updateCanvas(){
+        HashMap<Point2D, Color> pixels = domainController.getPixels();
+        pixels.forEach(this::drawPixel);
+        drawGrid();
+    }
+
+    private void drawPixel(Point2D point, Color color){
+        graphicsContext.setFill(color);
+
+        double x = point.getX() * scale + BORDER_BUFFER;
+        double y = point.getY() * scale + BORDER_BUFFER;
+        double width = scale;
+        double height = scale;
+
+        graphicsContext.fillRect(x, y, width, height);
     }
 }
