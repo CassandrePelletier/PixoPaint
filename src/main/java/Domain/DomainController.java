@@ -13,7 +13,7 @@ public class DomainController {
 
     private DomainController(){
         // Hardcoded
-        Dimension2D DEFAULT_DIMENSION = new Dimension2D(50,50);
+        Dimension2D DEFAULT_DIMENSION = new Dimension2D(45,50);
         this.project = new Project(DEFAULT_DIMENSION);
     }
 

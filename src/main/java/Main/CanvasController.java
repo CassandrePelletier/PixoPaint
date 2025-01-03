@@ -18,8 +18,8 @@ public class CanvasController {
     private Canvas canvas;
     private GraphicsContext graphicsContext;
     private double scale;
-    private final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(650,565);
-    private final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(150,35);
+    private final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(565,565);
+    private final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(235,35);
     private final int BORDER_BUFFER = 1;
 
     private CanvasController(Canvas canvas){
@@ -49,7 +49,7 @@ public class CanvasController {
     private void setScreenScale(double width, double height){
         double pixelsAllowedInX = ALLOWED_CANVAS_PIXELS.getWidth();
         double pixelsAllowedInY = ALLOWED_CANVAS_PIXELS.getHeight();
-        if ((pixelsAllowedInX - width) < (pixelsAllowedInY - height)){
+        if (width > height){
             scale = (pixelsAllowedInX / width);
         } else {
             scale = (pixelsAllowedInY / height);
