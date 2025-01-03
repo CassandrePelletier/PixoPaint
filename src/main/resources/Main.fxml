@@ -13,7 +13,6 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
    <children>
-      <AnchorPane prefHeight="0.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom, WHITE, LIGHTGRAY);" />
       <AnchorPane layoutY="35.0" prefHeight="565.0" prefWidth="150.0" style="-fx-background-color: #4D4D4D;">
          <children>
             <ColorPicker fx:id="colorPicker" layoutX="13.0" layoutY="18.0" onAction="#changeActiveColor" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-color: LIGHTGRAY;" />
