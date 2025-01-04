@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ColorController {
     private final DomainController domainController = DomainController.getInstance();
@@ -48,10 +49,22 @@ public class ColorController {
 
     private void modifyColorHistory(){
         List<Color> colorHistory = domainController.getColorHistory(COLORS_IN_HISTORY);
-        // TODO : update on gui
+        for (int i = 0; i < colorHistory.size(); i++) {
+            String id = "color" + i;
+            String color = parseColorForCSS(colorHistory.get(i));
+
+            colorHistoryButtons.stream()
+                    .filter(b -> id.equals(b.getId()))
+                    .findFirst()
+                    .ifPresent(button -> button.setStyle("-fx-background-color:" + color + ";"));
+        }
     }
 
     public Color getActiveColor(){
         return activeColor;
+    }
+
+    public String parseColorForCSS(Color color){
+        return "#" + color.toString().substring(2,8);
     }
 }

@@ -21,9 +21,9 @@ public class CanvasConversion {
     }
 
     public static Dimension2D calculateCanvasDimension(double width, double height) {
-        double newWidth = width * scale + BORDER_BUFFER * 2;
-        double newHeight = height * scale + BORDER_BUFFER * 2;
-        return new Dimension2D(newWidth, newHeight);
+        double canvasWidth = width * scale + BORDER_BUFFER * 2;
+        double canvasHeight = height * scale + BORDER_BUFFER * 2;
+        return new Dimension2D(canvasWidth, canvasHeight);
     }
 
     public static Dimension2D calculateCanvasLayout(double width, double height){
@@ -39,9 +39,9 @@ public class CanvasConversion {
     }
 
     public static Point2D canvasToPixel(Point2D canvasPixel){
-        double pixelX = floor(canvasPixel.getX() / scale);
-        double pixelY = floor(canvasPixel.getY() / scale);
-        return new Point2D(pixelX, pixelY);
+        double x = floor(canvasPixel.getX() / scale);
+        double y = floor(canvasPixel.getY() / scale);
+        return new Point2D(x, y);
     }
 
     public static Point2D pixelToCanvas(Point2D pixel){

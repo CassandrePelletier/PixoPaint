@@ -19,6 +19,6 @@ public class ColorHistory {
 
     public List<Color> getColorHistory(int n){
         int startIndex = Math.max(0, colors.size() - n);
-        return colors.subList(startIndex, colors.size());
+        return colors.subList(startIndex, colors.size()).reversed();
     }
 }
