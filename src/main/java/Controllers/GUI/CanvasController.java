@@ -1,6 +1,6 @@
-package Main;
+package Controllers.GUI;
 
-import Domain.DomainController;
+import Controllers.DomainController;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;

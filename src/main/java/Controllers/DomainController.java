@@ -1,5 +1,6 @@
-package Domain;
+package Controllers;
 
+import Domain.Project;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
