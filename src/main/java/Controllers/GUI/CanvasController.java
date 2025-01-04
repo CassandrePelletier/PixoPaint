@@ -1,18 +1,14 @@
 package Controllers.GUI;
 
 import Controllers.DomainController;
-import Util.CanvasConversion;
+import static Util.CanvasConversion.*;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
 import java.util.HashMap;
-
-import static Util.CanvasConversion.*;
-import static java.lang.Math.floor;
 
 public class CanvasController {
     private static CanvasController instance = null;

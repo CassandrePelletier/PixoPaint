@@ -2,7 +2,6 @@ package Util;
 
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
-
 import static java.lang.Math.floor;
 
 public class CanvasConversion {
