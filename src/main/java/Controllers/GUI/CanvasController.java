@@ -1,6 +1,7 @@
 package Controllers.GUI;
 
 import Controllers.DomainController;
+import Util.CanvasConversion;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -10,6 +11,7 @@ import javafx.scene.paint.Color;
 
 import java.util.HashMap;
 
+import static Util.CanvasConversion.*;
 import static java.lang.Math.floor;
 
 public class CanvasController {
@@ -17,10 +19,6 @@ public class CanvasController {
     private final DomainController domainController = DomainController.getInstance();
     private Canvas canvas;
     private GraphicsContext graphicsContext;
-    private double scale;
-    private final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(565,565);
-    private final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(235,35);
-    private final int BORDER_BUFFER = 1;
 
     private CanvasController(Canvas canvas){
         this.canvas = canvas;
@@ -46,38 +44,20 @@ public class CanvasController {
         drawGrid();
     }
 
-    private void setScreenScale(double width, double height){
-        double pixelsAllowedInX = ALLOWED_CANVAS_PIXELS.getWidth();
-        double pixelsAllowedInY = ALLOWED_CANVAS_PIXELS.getHeight();
-        if (width > height){
-            scale = (pixelsAllowedInX / width);
-        } else {
-            scale = (pixelsAllowedInY / height);
-        }
-    }
-
     private void setDimensionCanvas(double width, double height){
-        double newWidth = width * scale + BORDER_BUFFER * 2;
-        double newHeight = height * scale + BORDER_BUFFER * 2;
-
-        canvas.setWidth(newWidth);
-        canvas.setHeight(newHeight);
+        Dimension2D dimension = calculateCanvasDimension(width, height);
+        canvas.setWidth(dimension.getWidth());
+        canvas.setHeight(dimension.getHeight());
     }
 
     private void centerCanvas(){
         double width = canvas.getWidth();
         double height = canvas.getHeight();
 
-        double initialLayoutInX = INITIAL_CANVAS_LAYOUT.getWidth();
-        double initialLayoutInY = INITIAL_CANVAS_LAYOUT.getHeight();
-        double allowedPixelsInX =  ALLOWED_CANVAS_PIXELS.getWidth();
-        double allowedPixelsInY =  ALLOWED_CANVAS_PIXELS.getHeight();
+        Dimension2D layout = calculateCanvasLayout(width, height);
 
-        double newLayoutInX = initialLayoutInX + (allowedPixelsInX - width) / 2;
-        double newLayoutInY = initialLayoutInY + (allowedPixelsInY - height) / 2;
-
-        canvas.setLayoutX(newLayoutInX);
-        canvas.setLayoutY(newLayoutInY);
+        canvas.setLayoutX(layout.getWidth());
+        canvas.setLayoutY(layout.getHeight());
     }
 
     public void drawGrid(){
@@ -86,6 +66,7 @@ public class CanvasController {
 
         double width = canvas.getWidth();
         double height = canvas.getHeight();
+        double scale = getScale();
 
         for (double i = 1; i <= width; i+=scale) {
             for (double j = 1; j <= height; j+=scale) {
@@ -97,11 +78,9 @@ public class CanvasController {
     }
 
     public void modifyPixelColor(MouseEvent event, Color activeColor){
-        double pixelX = floor(event.getX() / scale);
-        double pixelY = floor(event.getY() / scale);
-
-        Point2D coordinates = new Point2D(pixelX, pixelY);
-        domainController.modifyPixelColor(coordinates, activeColor);
+        Point2D canvasPixel = new Point2D(event.getX(), event.getY());
+        Point2D pixel = canvasToPixel(canvasPixel);
+        domainController.modifyPixelColor(pixel, activeColor);
         updateCanvas();
     }
 
@@ -112,13 +91,12 @@ public class CanvasController {
     }
 
     private void drawPixel(Point2D point, Color color){
+        Point2D canvasPixel = pixelToCanvas(point);
+
+        double width = getScale();
+        double height = getScale();
+
         graphicsContext.setFill(color);
-
-        double x = point.getX() * scale + BORDER_BUFFER;
-        double y = point.getY() * scale + BORDER_BUFFER;
-        double width = scale;
-        double height = scale;
-
-        graphicsContext.fillRect(x, y, width, height);
+        graphicsContext.fillRect(canvasPixel.getX(), canvasPixel.getY(), width, height);
     }
 }
