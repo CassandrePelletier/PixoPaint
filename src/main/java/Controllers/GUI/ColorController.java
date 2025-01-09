@@ -1,15 +1,18 @@
 package Controllers.GUI;
 
 import Controllers.DomainController;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class ColorController {
     private final DomainController domainController = DomainController.getInstance();
@@ -51,20 +54,29 @@ public class ColorController {
         List<Color> colorHistory = domainController.getColorHistory(COLORS_IN_HISTORY);
         for (int i = 0; i < colorHistory.size(); i++) {
             String id = "color" + i;
-            String color = parseColorForCSS(colorHistory.get(i));
+            Color color = colorHistory.get(i);
 
             colorHistoryButtons.stream()
                     .filter(b -> id.equals(b.getId()))
                     .findFirst()
-                    .ifPresent(button -> button.setStyle("-fx-background-color:" + color + ";"));
+                    .ifPresent(button -> setButtonColor(button, color));
         }
+    }
+
+    public void changeActiveColorToHistory(Button button) {
+        activeColor = getButtonColor(button);
+        colorPicker.setValue(activeColor);
+    }
+
+    private Color getButtonColor(Button button){
+        return (Color) button.getBackground().getFills().getFirst().getFill();
+    }
+
+    private void setButtonColor(Button button, Color color){
+        button.setBackground(new Background(new BackgroundFill(color, new CornerRadii(1), Insets.EMPTY)));
     }
 
     public Color getActiveColor(){
         return activeColor;
-    }
-
-    public String parseColorForCSS(Color color){
-        return "#" + color.toString().substring(2,8);
     }
 }

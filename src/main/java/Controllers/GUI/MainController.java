@@ -2,6 +2,7 @@ package Controllers.GUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.input.MouseEvent;
@@ -18,15 +19,12 @@ public class MainController {
     private CanvasController canvasController = null;
     private ColorController colorController = null;
 
-    @FXML
     public void initialize() {
         canvasController = CanvasController.getInstance(canvas);
         colorController = ColorController.getInstance(colorPane, colorPicker);
-
         canvasController.initializeCanvas();
     }
 
-    @FXML
     public void modifyPixelColor(MouseEvent event){
         Color activeColor = colorController.getActiveColor();
         canvasController.modifyPixelColor(event, activeColor);
@@ -34,5 +32,10 @@ public class MainController {
 
     public void changeActiveColor() {
         colorController.changeActiveColor();
+    }
+
+    public void changeActiveColorToHistory(MouseEvent event){
+        Button clickedButton = (Button) event.getSource();
+        colorController.changeActiveColorToHistory(clickedButton);
     }
 }

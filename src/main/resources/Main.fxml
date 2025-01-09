@@ -21,77 +21,77 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="color0" layoutX="17.5" layoutY="55.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color0" layoutX="17.5" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color1" layoutX="39.5" layoutY="55.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color1" layoutX="39.5" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color2" layoutX="61.5" layoutY="55.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color2" layoutX="61.5" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color3" layoutX="83.5" layoutY="55.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color3" layoutX="83.5" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color4" layoutX="105.5" layoutY="55.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color4" layoutX="105.5" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color5" layoutX="17.5" layoutY="77.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color5" layoutX="17.5" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color6" layoutX="39.5" layoutY="77.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color6" layoutX="39.5" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color7" layoutX="61.5" layoutY="77.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color7" layoutX="61.5" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color8" layoutX="83.5" layoutY="77.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color8" layoutX="83.5" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color9" layoutX="105.5" layoutY="77.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color9" layoutX="105.5" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color10" layoutX="17.5" layoutY="99.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color10" layoutX="17.5" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color11" layoutX="39.5" layoutY="99.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color11" layoutX="39.5" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color12" layoutX="61.5" layoutY="99.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color12" layoutX="61.5" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color13" layoutX="83.5" layoutY="99.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color13" layoutX="83.5" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
             </Button>
-            <Button fx:id="color14" layoutX="105.5" layoutY="99.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px; -fx-background-color: WHITE;">
+            <Button fx:id="color14" layoutX="105.5" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#changeActiveColorToHistory" prefHeight="12.0" prefWidth="12.0" style="-fx-background-radius: 0px;">
                <font>
                   <Font size="5.0" />
                </font>
