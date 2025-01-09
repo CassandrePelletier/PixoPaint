@@ -1,14 +1,10 @@
 package Controllers.GUI;
 
 import Controllers.DomainController;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
@@ -63,7 +59,7 @@ public class ColorController {
         }
     }
 
-    public void changeActiveColorToHistory(Button button) {
+    public void changeActiveColorToHistory(Button button){
         activeColor = getButtonColor(button);
         colorPicker.setValue(activeColor);
     }
@@ -73,7 +69,15 @@ public class ColorController {
     }
 
     private void setButtonColor(Button button, Color color){
-        button.setBackground(new Background(new BackgroundFill(color, new CornerRadii(1), Insets.EMPTY)));
+        String hexColor = parseColorToHex(color);
+        button.setStyle("-fx-background-color: " + hexColor + ";");
+    }
+
+    private String parseColorToHex(Color color){
+        return String.format("#%02x%02x%02x",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
     }
 
     public Color getActiveColor(){

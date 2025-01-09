@@ -1,4 +1,6 @@
+.button {
+}
+
 .button:hover {
-    -fx-background-color: inherit;
-    -fx-border-color: inherit;
+    -fx-cursor: hand;
 }
