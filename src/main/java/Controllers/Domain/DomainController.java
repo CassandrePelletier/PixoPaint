@@ -1,6 +1,5 @@
 package Controllers.Domain;
 
-import Domain.PixelChange;
 import Domain.Project;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
@@ -32,41 +31,32 @@ public class DomainController {
 
     // Color History
     public void addColorToHistory(Color color){
-        project.colorHistory.addColor(color);
+        project.addColorToHistory(color);
     }
 
     public List<Color> getColorHistory(int n){
-        return project.colorHistory.getColorHistory(n);
+        return project.getColorHistory(n);
     }
 
     // Pixels
     public void modifyPixelColor(Point2D coordinates, Color newColor){
-        Color oldColor = project.canvas.getPixelColor(coordinates);
-
-        project.undoRedoManager.addPixelChange(coordinates, oldColor, newColor);
-        project.canvas.modifyPixelColor(coordinates, newColor);
+        project.modifyPixelColor(coordinates, newColor);
     }
 
     public HashMap<Point2D, Color> getPixels(){
-        return project.canvas.getPixels();
+        return project.getPixels();
     }
 
     public Dimension2D getDimension(){
-        return project.canvas.getDimension();
+        return project.getDimension();
     }
 
     // Undo/Redo
     public void undo(){
-        PixelChange pixelChange = project.undoRedoManager.undo();
-        if (pixelChange != null) {
-            project.canvas.modifyPixelColor(pixelChange.coordinates, pixelChange.oldColor);
-        }
+        project.undo();
     }
 
     public void redo(){
-        PixelChange pixelChange =  project.undoRedoManager.redo();
-        if (pixelChange != null) {
-            project.canvas.modifyPixelColor(pixelChange.coordinates, pixelChange.newColor);
-        }
+        project.redo();
     }
 }
