@@ -83,12 +83,17 @@ public class CanvasController {
     }
 
     private void updateCanvas(){
+        clearCanvas();
         HashMap<Point2D, Color> pixels = domainController.getPixels();
         pixels.forEach(this::drawPixel);
 
         if (!isGridHidden){
             drawGrid();
         }
+    }
+
+    private void clearCanvas(){
+        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     private void drawPixel(Point2D point, Color color){
