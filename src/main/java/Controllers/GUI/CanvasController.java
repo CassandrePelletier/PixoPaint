@@ -65,11 +65,11 @@ public class CanvasController {
         double height = canvas.getHeight();
         double scale = getScale();
 
-        for (double i = 1; i <= width; i+=scale) {
-            for (double j = 1; j <= height; j+=scale) {
+        for (double i = 1; i < width; i+=scale) {
+            for (double j = 1; j < height; j+=scale) {
                 // Start (x1, y1) and finish (x2, y2)
-                graphicsContext.strokeLine(i, 0, i, height);
-                graphicsContext.strokeLine(0, j, width, j);
+                graphicsContext.strokeLine(i, 1, i, height - 1);
+                graphicsContext.strokeLine(1, j, width - 1, j);
             }
         }
     }

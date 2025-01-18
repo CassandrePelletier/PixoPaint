@@ -6,8 +6,8 @@ import static java.lang.Math.floor;
 
 public class CanvasConversion {
     private static double scale;
-    private static final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(565,565);
-    private static final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(235,35);
+    private static final Dimension2D ALLOWED_CANVAS_PIXELS = new Dimension2D(560,560);
+    private static final Dimension2D INITIAL_CANVAS_LAYOUT = new Dimension2D(238,38);
     private static final int BORDER_BUFFER = 1;
 
     public static void setScreenScale(double width, double height){
