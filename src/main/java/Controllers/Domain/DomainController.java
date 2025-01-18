@@ -1,7 +1,7 @@
 package Controllers.Domain;
 
+import Domain.PixelChange;
 import Domain.Project;
-import Util.PixelChange;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
@@ -56,11 +56,17 @@ public class DomainController {
     }
 
     // Undo/Redo
-    public PixelChange undo(){
-        return project.undoRedoManager.undo();
+    public void undo(){
+        PixelChange pixelChange = project.undoRedoManager.undo();
+        if (pixelChange != null) {
+            project.canvas.modifyPixelColor(pixelChange.coordinates, pixelChange.oldColor);
+        }
     }
 
-    public PixelChange redo(){
-        return project.undoRedoManager.redo();
+    public void redo(){
+        PixelChange pixelChange =  project.undoRedoManager.redo();
+        if (pixelChange != null) {
+            project.canvas.modifyPixelColor(pixelChange.coordinates, pixelChange.newColor);
+        }
     }
 }

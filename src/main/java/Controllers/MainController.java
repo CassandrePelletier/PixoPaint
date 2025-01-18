@@ -48,4 +48,12 @@ public class MainController {
         boolean isGridHidden = hideGridCheckBox.isSelected();
         canvasController.changeStateGrid(isGridHidden);
     }
+
+    public void undo(){
+        canvasController.undo();
+    }
+
+    public void redo(){
+        canvasController.redo();
+    }
 }

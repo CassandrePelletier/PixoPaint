@@ -2,6 +2,7 @@ package Controllers.GUI;
 
 import Controllers.Domain.DomainController;
 import static Util.CanvasConversion.*;
+
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -107,6 +108,16 @@ public class CanvasController {
 
     public void changeStateGrid(boolean isGridHidden){
         this.isGridHidden = isGridHidden;
+        updateCanvas();
+    }
+
+    public void undo(){
+        this.domainController.undo();
+        updateCanvas();
+    }
+
+    public void redo(){
+        this.domainController.redo();
         updateCanvas();
     }
 }
