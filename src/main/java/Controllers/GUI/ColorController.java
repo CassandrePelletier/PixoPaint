@@ -27,6 +27,7 @@ public class ColorController {
 
         for(Node node : colorPane.getChildren()) {
             if (node instanceof Button button) {
+                setButtonColor(button, Color.TRANSPARENT);
                 colorHistoryButtons.add(button);
             }
         }
