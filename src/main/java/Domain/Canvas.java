@@ -32,6 +32,10 @@ public class Canvas {
         pixels.put(coordinates, color);
     }
 
+    public Color getPixelColor(Point2D coordinates){
+        return pixels.get(coordinates);
+    }
+
     public Dimension2D getDimension(){
         return dimension;
     }

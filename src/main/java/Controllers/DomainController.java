@@ -1,6 +1,7 @@
 package Controllers;
 
 import Domain.Project;
+import Util.PixelChange;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
@@ -39,8 +40,11 @@ public class DomainController {
     }
 
     // Pixels
-    public void modifyPixelColor(Point2D coordinates, Color color){
-        project.canvas.modifyPixelColor(coordinates, color);
+    public void modifyPixelColor(Point2D coordinates, Color newColor){
+        Color oldColor = project.canvas.getPixelColor(coordinates);
+
+        project.undoRedoManager.addPixelChange(coordinates, oldColor, newColor);
+        project.canvas.modifyPixelColor(coordinates, newColor);
     }
 
     public HashMap<Point2D, Color> getPixels(){
@@ -50,4 +54,6 @@ public class DomainController {
     public Dimension2D getDimension(){
         return project.canvas.getDimension();
     }
+
+    // Undo/Redo
 }
