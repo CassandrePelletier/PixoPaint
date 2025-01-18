@@ -3,6 +3,7 @@ package Controllers.GUI;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.input.MouseEvent;
@@ -15,6 +16,8 @@ public class MainController {
     private AnchorPane colorPane;
     @FXML
     private ColorPicker colorPicker;
+    @FXML
+    private CheckBox hideGridCheckBox;
 
     private CanvasController canvasController = null;
     private ColorController colorController = null;
@@ -37,5 +40,9 @@ public class MainController {
     public void changeActiveColorToHistory(MouseEvent event){
         Button clickedButton = (Button) event.getSource();
         colorController.changeActiveColorToHistory(clickedButton);
+    }
+
+    public void changeStateGrid(){
+
     }
 }
