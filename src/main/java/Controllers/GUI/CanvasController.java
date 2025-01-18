@@ -6,6 +6,7 @@ import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import java.util.HashMap;
@@ -13,8 +14,9 @@ import java.util.HashMap;
 public class CanvasController {
     private static CanvasController instance = null;
     private final DomainController domainController = DomainController.getInstance();
-    private Canvas canvas;
-    private GraphicsContext graphicsContext;
+    private final Canvas canvas;
+    private final GraphicsContext graphicsContext;
+    private boolean isGridHidden = false;
 
     private CanvasController(Canvas canvas){
         this.canvas = canvas;
@@ -57,7 +59,7 @@ public class CanvasController {
     }
 
     public void drawGrid(){
-        graphicsContext.setStroke(Color.BLACK);
+        graphicsContext.setStroke(Color.DARKGRAY);
         graphicsContext.setLineWidth(1);
 
         double width = canvas.getWidth();
@@ -83,7 +85,10 @@ public class CanvasController {
     private void updateCanvas(){
         HashMap<Point2D, Color> pixels = domainController.getPixels();
         pixels.forEach(this::drawPixel);
-        drawGrid();
+
+        if (!isGridHidden){
+            drawGrid();
+        }
     }
 
     private void drawPixel(Point2D point, Color color){
@@ -94,5 +99,10 @@ public class CanvasController {
 
         graphicsContext.setFill(color);
         graphicsContext.fillRect(canvasPixel.getX(), canvasPixel.getY(), width, height);
+    }
+
+    public void changeStateGrid(boolean isGridHidden){
+        this.isGridHidden = isGridHidden;
+        updateCanvas();
     }
 }
