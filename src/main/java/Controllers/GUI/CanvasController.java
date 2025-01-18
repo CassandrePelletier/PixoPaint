@@ -1,6 +1,6 @@
 package Controllers.GUI;
 
-import Controllers.DomainController;
+import Controllers.Domain.DomainController;
 import static Util.CanvasConversion.*;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;

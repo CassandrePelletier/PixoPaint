@@ -1,4 +1,4 @@
-package Controllers;
+package Controllers.Domain;
 
 import Domain.Project;
 import Util.PixelChange;
@@ -56,4 +56,11 @@ public class DomainController {
     }
 
     // Undo/Redo
+    public PixelChange undo(){
+        return project.undoRedoManager.undo();
+    }
+
+    public PixelChange redo(){
+        return project.undoRedoManager.redo();
+    }
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: WHITE; -fx-border-width: 0px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GUI.MainController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: WHITE; -fx-border-width: 0px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
    <children>
       <AnchorPane fx:id="colorPane" layoutY="35.0" prefHeight="565.0" prefWidth="135.0" style="-fx-background-color: #4D4D4D;">
          <children>
@@ -112,8 +112,8 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="15.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: LIGHTGRAY;" text="Undo" />
-            <Button layoutX="65.0" layoutY="5.0" mnemonicParsing="false" prefWidth="45.0" style="-fx-background-color: LIGHTGRAY;" text="Redo" />
+            <Button fx:id="undoButton" layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#undo" style="-fx-background-color: LIGHTGRAY;" text="Undo" />
+            <Button fx:id="redoButton" layoutX="65.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" prefWidth="45.0" style="-fx-background-color: LIGHTGRAY;" text="Redo" />
             <MenuBar layoutX="135.0" layoutY="2.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(to bottom, GRAY,#4D4D4D);">
               <menus>
                 <Menu mnemonicParsing="false" text="File">

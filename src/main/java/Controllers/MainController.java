@@ -1,5 +1,7 @@
-package Controllers.GUI;
+package Controllers;
 
+import Controllers.GUI.CanvasController;
+import Controllers.GUI.ColorController;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;

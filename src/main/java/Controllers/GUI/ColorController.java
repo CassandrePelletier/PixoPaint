@@ -1,6 +1,6 @@
 package Controllers.GUI;
 
-import Controllers.DomainController;
+import Controllers.Domain.DomainController;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
