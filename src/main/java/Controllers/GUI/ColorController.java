@@ -13,10 +13,9 @@ import java.util.List;
 public class ColorController {
     private final DomainController domainController = DomainController.getInstance();
     private static ColorController instance = null;
-    private ColorPicker colorPicker;
+    private final ColorPicker colorPicker;
     private Color activeColor;
     private ArrayList<Button> colorHistoryButtons;
-    private final int COLORS_IN_HISTORY = 15;
 
     private ColorController(AnchorPane colorPane, ColorPicker colorPicker){
         initializeColorHistoryButtons(colorPane);
@@ -47,6 +46,7 @@ public class ColorController {
     }
 
     private void modifyColorHistory(){
+        int COLORS_IN_HISTORY = 15;
         List<Color> colorHistory = domainController.getColorHistory(COLORS_IN_HISTORY);
         for (int i = 0; i < colorHistory.size(); i++) {
             String id = "color" + i;

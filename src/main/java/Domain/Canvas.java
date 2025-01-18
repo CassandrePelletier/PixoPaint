@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Canvas {
     private final Dimension2D dimension;
-    private HashMap<Point2D,Color> pixels;
+    private final HashMap<Point2D,Color> pixels;
 
     public Canvas(Dimension2D dimension){
         this.dimension = dimension ;
