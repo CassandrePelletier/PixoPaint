@@ -27,7 +27,8 @@ public class ColorController {
 
         for(Node node : colorPane.getChildren()) {
             if (node instanceof Button button) {
-                setButtonColor(button, Color.TRANSPARENT);
+                button.setVisible(false);
+                button.setManaged(false);
                 colorHistoryButtons.add(button);
             }
         }
@@ -72,6 +73,8 @@ public class ColorController {
     private void setButtonColor(Button button, Color color){
         String hexColor = parseColorToHex(color);
         button.setStyle("-fx-background-color: " + hexColor + ";");
+        button.setVisible(true);
+        button.setManaged(true);
     }
 
     private String parseColorToHex(Color color){
