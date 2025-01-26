@@ -6,6 +6,10 @@
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: WHITE; -fx-border-width: 0px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
@@ -107,12 +111,29 @@
       <Button fx:id="undoButton" layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#undo" style="-fx-background-color: LIGHTGRAY;" text="Undo" />
       <Button fx:id="redoButton" layoutX="65.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" prefWidth="45.0" style="-fx-background-color: LIGHTGRAY;" text="Redo" />
    </AnchorPane>
-   <Canvas fx:id="canvas" height="560.0" layoutX="238.0" layoutY="38.0" onMouseClicked="#modifyPixelColor" width="560.0" />
-   <AnchorPane layoutX="135.0" layoutY="35.0" prefHeight="565.0" prefWidth="100.0" style="-fx-background-color: DARKGRAY;">
-      <Label alignment="CENTER" prefHeight="15.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to top, GRAY,DARKGRAY);" text="Project Repository">
-         <font>
-            <Font name="Arial" size="11.0" />
-         </font>
-      </Label>
-   </AnchorPane>
+   <Canvas fx:id="canvas" height="560.0" layoutX="240.0" layoutY="39.0" onMouseClicked="#modifyPixelColor" width="560.0" />
+   <AnchorPane layoutX="135.0" layoutY="35.0" prefHeight="565.0" prefWidth="100.0" style="-fx-background-color: DARKGRAY;" />
+   <Rectangle fill="#c3c3c3" height="565.0" layoutX="235.0" layoutY="35.0" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="2.0" width="2.0">
+      <stroke>
+         <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color opacity="0.6015228629112244" />
+                  </color>
+               </Stop>
+               <Stop offset="0.006711409395973154">
+                  <color>
+                     <Color opacity="0.6015228629112244" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="1.0" green="1.0" blue="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </stroke>
+   </Rectangle>
 </AnchorPane>

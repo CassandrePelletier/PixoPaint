@@ -1,5 +1,6 @@
-package Domain;
+package Domain.Managers;
 
+import Domain.PixelChange;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
