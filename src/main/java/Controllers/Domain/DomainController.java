@@ -1,5 +1,6 @@
 package Controllers.Domain;
 
+import Domain.Managers.ProjectManager;
 import Domain.Project;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
@@ -10,12 +11,15 @@ import java.util.List;
 
 public class DomainController {
     private static DomainController instance = null;
+    private ProjectManager projectManager = null;
     private Project project;
 
     private DomainController(){
         // Hardcoded
         Dimension2D DEFAULT_DIMENSION = new Dimension2D(25,25);
-        this.project = new Project(DEFAULT_DIMENSION);
+        project = new Project(DEFAULT_DIMENSION);
+
+        projectManager = ProjectManager.getInstance(project);
     }
 
     public static DomainController getInstance(){
@@ -58,5 +62,14 @@ public class DomainController {
 
     public void redo(){
         project.redo();
+    }
+
+    // Save File
+    public void saveFile(){
+        projectManager.saveProject();
+    }
+
+    public void setActiveDirectoryPath(String activeDirectoryPath) {
+        projectManager.setActiveDirectoryPath(activeDirectoryPath);
     }
 }

@@ -5,6 +5,9 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -108,14 +111,24 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="undoButton" layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#undo" style="-fx-background-color: LIGHTGRAY;" text="Undo" />
-      <Button fx:id="redoButton" layoutX="65.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" prefWidth="45.0" style="-fx-background-color: LIGHTGRAY;" text="Redo" />
+      <Button layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#undo" style="-fx-background-color: LIGHTGRAY;" text="Undo" />
+      <Button layoutX="65.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" prefWidth="45.0" style="-fx-background-color: LIGHTGRAY;" text="Redo" />
+      <MenuBar layoutX="135.0" layoutY="5.0" opacity="0.8" prefHeight="25.0" prefWidth="101.0" style="-fx-background-radius: 3px;">
+         <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#saveAll" text="Save all" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAs" text="Save as" />
+            <MenuItem mnemonicParsing="false" onAction="#openProject" text="Open" />
+            <MenuItem mnemonicParsing="false" onAction="#createNewProject" text="New Project" />
+         </Menu>
+         <Menu mnemonicParsing="false" onAction="#redirectAbout" text="About">
+         </Menu>
+      </MenuBar>
    </AnchorPane>
    <Canvas fx:id="canvas" height="560.0" layoutX="240.0" layoutY="39.0" onMouseClicked="#modifyPixelColor" width="560.0" />
    <AnchorPane layoutX="135.0" layoutY="35.0" prefHeight="565.0" prefWidth="100.0" style="-fx-background-color: DARKGRAY;" />
    <Rectangle fill="#c3c3c3" height="565.0" layoutX="235.0" layoutY="35.0" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="2.0" width="2.0">
       <stroke>
-         <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+         <LinearGradient startX="1.0">
             <stops>
                <Stop>
                   <color>
