@@ -38,4 +38,12 @@ public class UndoRedoManager {
         }
         return null;
     }
+
+    public Stack<PixelChange> getUndoStack() {
+        return undoStack;
+    }
+
+    public Stack<PixelChange> getRedoStack() {
+        return redoStack;
+    }
 }

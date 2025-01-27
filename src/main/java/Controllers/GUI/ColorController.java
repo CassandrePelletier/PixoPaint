@@ -49,7 +49,7 @@ public class ColorController {
 
     private void modifyColorHistory(){
         int COLORS_IN_HISTORY = 15;
-        List<Color> colorHistory = domainController.getColorHistory(COLORS_IN_HISTORY);
+        List<Color> colorHistory = domainController.getNColorHistory(COLORS_IN_HISTORY);
         for (int i = 0; i < colorHistory.size(); i++) {
             String id = "color" + i;
             Color color = colorHistory.get(i);

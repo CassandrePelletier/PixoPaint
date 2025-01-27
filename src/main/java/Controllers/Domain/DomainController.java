@@ -38,8 +38,8 @@ public class DomainController {
         project.addColorToHistory(color);
     }
 
-    public List<Color> getColorHistory(int n){
-        return project.getColorHistory(n);
+    public List<Color> getNColorHistory(int n){
+        return project.getNColorHistory(n);
     }
 
     // Pixels

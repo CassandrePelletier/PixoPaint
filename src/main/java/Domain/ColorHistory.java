@@ -17,8 +17,12 @@ public class ColorHistory {
         colors.add(color);
     }
 
-    public List<Color> getColorHistory(int n){
+    public List<Color> getNColorHistory(int n){
         int startIndex = Math.max(0, colors.size() - n);
         return colors.subList(startIndex, colors.size()).reversed();
+    }
+
+    public ArrayList<Color> getColorHistory(){
+        return colors;
     }
 }

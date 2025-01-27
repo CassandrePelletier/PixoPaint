@@ -5,8 +5,10 @@ import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 public class Project {
     private final Canvas canvas;
@@ -24,8 +26,12 @@ public class Project {
         colorHistory.addColor(color);
     }
 
-    public List<Color> getColorHistory(int n){
-        return colorHistory.getColorHistory(n);
+    public List<Color> getNColorHistory(int n){
+        return colorHistory.getNColorHistory(n);
+    }
+
+    public ArrayList<Color> getColorHistory(){
+        return colorHistory.getColorHistory();
     }
 
     // Pixels
@@ -57,5 +63,13 @@ public class Project {
         if (pixelChange != null) {
             canvas.modifyPixelColor(pixelChange.coordinates, pixelChange.newColor);
         }
+    }
+
+    public Stack<PixelChange> getUndoStack() {
+        return undoRedoManager.getUndoStack();
+    }
+
+    public Stack<PixelChange> getRedoStack() {
+        return undoRedoManager.getRedoStack();
     }
 }
