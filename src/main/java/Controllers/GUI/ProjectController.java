@@ -28,19 +28,23 @@ public class ProjectController {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select a Directory");
 
-        File initialDirectory = getInitialDirectory();
+        File initialDirectory = getDefaultDirectory();
         directoryChooser.setInitialDirectory(initialDirectory);
 
         File selectedDirectory = directoryChooser.showDialog(stage);
 
         if (selectedDirectory != null) {
-            System.out.println("Selected Directory: " + selectedDirectory.getAbsolutePath());
             domainController.setActiveDirectoryPath(selectedDirectory.getAbsolutePath());
         }
     }
 
-    private File getInitialDirectory(){
+    public File getDefaultDirectory(){
         return new File(System.getProperty("user.home"));
+    }
+
+    public void setDefaultDirectory(){
+        File defaultDirectory = getDefaultDirectory();
+        domainController.setActiveDirectoryPath(defaultDirectory.getAbsolutePath());
     }
 
     public void openProject(){

@@ -26,7 +26,8 @@ public class ProjectManager {
     }
 
     public void setActiveDirectoryPath(String activeDirectoryPath) {
-        this.activeDirectoryPath = activeDirectoryPath + "\\save.json";
+        this.activeDirectoryPath = activeDirectoryPath + "\\PixoPaint_Save.json";
+        System.out.println("Project will be saved at: " + this.activeDirectoryPath);
     }
 
     public void setActiveProject(Project project){

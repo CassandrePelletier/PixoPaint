@@ -31,7 +31,9 @@ public class MainController {
         canvasController = CanvasController.getInstance(canvas);
         colorController = ColorController.getInstance(colorPane, colorPicker);
         projectController = ProjectController.getInstance();
+        
         canvasController.initializeCanvas();
+        projectController.setDefaultDirectory();
     }
 
     public void modifyPixelColor(MouseEvent event){
